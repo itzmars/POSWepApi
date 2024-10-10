@@ -1,0 +1,30 @@
+# .gitignore for ASP.NET Core projects
+
+# Build results
+/bin/
+/obj/
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# DotCover
+.idea/
+*.dotCover
+
+# Others
+.vscode/
+*.vs/
+*.dbmdl
+*.bak
+*.backup
+*.log
+
+# Environment Variables
+appsettings.Development.json
+appsettings.Production.json
