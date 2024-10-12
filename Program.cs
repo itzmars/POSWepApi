@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using POSWebApi.Data;
 using POSWebApi.Repositories;
 using POSWebApi.Repositories.IRepositories;
+using AutoMapper;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +16,9 @@ builder.Services.AddScoped<IOrderRepository, OrderRepository>();
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddControllers();
+// Register AutoMapper with all profiles in the current assembly
+
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
