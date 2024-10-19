@@ -4,34 +4,25 @@ namespace POSWebApi.Models
 {
     public class Order
     {
-        [Key]
-        public Guid Id { get; set; } = Guid.NewGuid();
-
-        [Required]
-        public Guid CustomerId { get; set; }
-
-        public Customer? Customer { get; set; }
-
-        public List<OrderItem> OrderItems { get; set; } = new List<OrderItem>();
-
-        public DateTime OrderDate { get; set; } = DateTime.UtcNow;
-
+        public Guid OrderId { get; set; }
+        public string OrderNumber { get; set; }
+        public int? CustomerId { get; set; }
+        public int UserId { get; set; }
+        public DateTime OrderDate { get; set; }
+        public string Status { get; set; }
+        public decimal SubTotal { get; set; }
+        public decimal TaxAmount { get; set; }
         public decimal TotalAmount { get; set; }
+        public decimal Discount { get; set; }
+        public DateTime CreatedAt { get; set; }
+        public DateTime UpdatedAt { get; set; }
+
+        public Customer Customer { get; set; }
+        public User User { get; set; }
+        public ICollection<OrderDetail> OrderDetails { get; set; }
+        public ICollection<Payment> Payments { get; set; }
+
     }
 
-    public class OrderItem
-    {
-        [Key]
-        public Guid Id { get; set; } = Guid.NewGuid();
 
-        [Required]
-        public Guid ProductId { get; set; }
-
-        public Product? Product { get; set; }
-
-        [Range(1, int.MaxValue)]
-        public int Quantity { get; set; }
-
-        public decimal UnitPrice { get; set; }
-    }
 }
