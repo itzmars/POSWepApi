@@ -15,9 +15,9 @@ namespace POSWebApi.Models
         public User User { get; set; }
 
         [StringLength(255)]
-        public string Action { get; set; } 
+        public string Action { get; set; } = string.Empty;
 
-        public string Description { get; set; } 
+        public string Description { get; set; } = string.Empty;
 
         [Required]
         public DateTime LogDate { get; set; } = DateTime.Now; 

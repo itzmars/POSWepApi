@@ -38,7 +38,7 @@ namespace POSWebApi.Data
                 .HasOne(p => p.Category)
                 .WithMany(c => c.Products)
                 .HasForeignKey(p => p.CategoryId)
-                .OnDelete(DeleteBehavior.SetNull);  // Optional: Use SetNull to not delete products
+                .OnDelete(DeleteBehavior.SetNull); 
 
             // Vendor - Product (One-to-Many)
             modelBuilder.Entity<Product>()
@@ -66,7 +66,7 @@ namespace POSWebApi.Data
                 .HasOne(od => od.Product)
                 .WithMany(p => p.OrderDetails)
                 .HasForeignKey(od => od.ProductId)
-                .OnDelete(DeleteBehavior.Restrict);  // Restrict deletion of products if referenced in order details
+                .OnDelete(DeleteBehavior.Restrict);
 
             // PurchaseOrder - PurchaseOrderDetail (One-to-Many)
             modelBuilder.Entity<PurchaseOrderDetail>()
@@ -89,10 +89,9 @@ namespace POSWebApi.Data
                 .HasForeignKey(sl => sl.UserId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            // Additional configurations
-            // For example, if you want to configure default values, indexes, or constraints.
+           
 
-            base.OnModelCreating(modelBuilder);  // Important to call the base method
+            base.OnModelCreating(modelBuilder);
         }
     }
 }
